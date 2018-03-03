@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     String passedAddress;
     LatLng coordinates;
     List<Address> addressCollection;
+    Bundle arguments;
+    Object context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         //get address that was typed in and send it to MapsActivity
         Intent firstIntent = new Intent(MainActivity.this, MapsActivity.class);
         getAddress();
+        convertToCoordinates(context, passedAddress);
+        //parcel coordinates into bundle
+        arguments.putParcelable("longitudeLatitude", coordinates);
+        firstIntent.putExtras(arguments);
         startActivity(firstIntent);
     }
 
@@ -51,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //convert passedAddress to latitude and longitude coordinates
-    public LatLng convertToCoordinates (Context context, String address)
+    public void convertToCoordinates (Context context, String address)
     {
         Geocoder converter = new converter(context);
         try {
@@ -68,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         {
             exception.printStackTrace();
         }
-        return coordinates;
     }
+
+    public
+
+
 }
