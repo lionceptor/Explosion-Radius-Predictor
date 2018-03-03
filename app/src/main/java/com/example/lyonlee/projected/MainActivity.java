@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         //get address that was typed in and send it to MapsActivity
         Intent firstIntent = new Intent(MainActivity.this, MapsActivity.class);
         //parcel coordinates into bundle
-        arguments.putParcelable("long", convertToCoordinates(getAddress()));
-        firstIntent.putExtras(arguments);
+       /* arguments.putParcelable("long", convertToCoordinates(getAddress()));
+        firstIntent.putExtras(arguments); */
         startActivity(firstIntent);
     }
 
