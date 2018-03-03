@@ -18,65 +18,57 @@ import java.util.List;
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 
-private FusedLocationProviderClient FLPClient;
-
 public class MainActivity extends AppCompatActivity {
 
     String passedAddress;
     LatLng coordinates;
     List<Address> addressCollection;
     Bundle arguments;
-    Object context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     //relay passedAddress to MapsActivity
-    public void addressRelay(View view)
-    {
+    public void addressRelay(View view) {
         //get address that was typed in and send it to MapsActivity
         Intent firstIntent = new Intent(MainActivity.this, MapsActivity.class);
-        getAddress();
-        convertToCoordinates(context, passedAddress);
         //parcel coordinates into bundle
-        arguments.putParcelable("longitudeLatitude", coordinates);
+        arguments.putParcelable("long", convertToCoordinates(getAddress()));
         firstIntent.putExtras(arguments);
         startActivity(firstIntent);
     }
 
     //get address from EditText and add it to passedAddress string
-    public void getAddress(Intent addressIntent)
-    {
-        EditText address = (EditText)findViewById(R.id.editText2);
+    public String getAddress() {
+        EditText address = (EditText) findViewById(R.id.editText2);
         String realAddress = address.getText().toString();
-        addressIntent.putExtra(passedAddress, realAddress);
+        // addressIntent.putExtra(passedAddress, realAddress);
+        return realAddress;
     }
 
     //convert passedAddress to latitude and longitude coordinates
-    public void convertToCoordinates (Context context, String address)
-    {
-        Geocoder converter = new converter(context);
+    public LatLng convertToCoordinates(String address) {
+        Geocoder converter = new Geocoder(MainActivity.this);
         try {
-            //check if string is blank and return null if it is
-            if (address.equals("") || address.equals("null")){
-                return null;
+            //check if addresssCollection is blank and return null if it is
+            addressCollection = converter.getFromLocationName(address, 5);
+            if (addressCollection != null && addressCollection.size() > 0) {
+                Address coord = addressCollection.get(0);
+                coord.getLatitude();
+                coord.getLongitude();
+                coordinates = new LatLng(coord.getLatitude(), coord.getLongitude());
             }
-            addressCollection = converter.getFromLocationName(address, 6);
-            Address coord = addressCollection.get(0);
-            coordinates = new LatLng(coord.getLatitude(), coord.getLongitude());
         }
-        //could throw exception
-        catch(IOException exception)
-        {
-            exception.printStackTrace();
-        }
+    //could throw exception
+    catch(
+    IOException exception)
+    {
+        exception.printStackTrace();
     }
-
-    public
-
-
+    return coordinates;
+    }
 }
