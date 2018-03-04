@@ -117,9 +117,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         drawCircle(500, 0x2200FF00);
     }
 
-
-    public void zoomIn(View view)
+    public void clearMap(View view)
     {
-
+        mMap.clear();
     }
 }
