@@ -105,12 +105,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
        drawCircle(50000,0x22FF0000);
     }
 
-
     public void drawMoab(View view)
     {
         drawCircle(10000, 0x22FFD700);
     }
-
 
     public void drawCruise(View view)
     {
