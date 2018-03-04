@@ -37,13 +37,16 @@ public class MainActivity extends AppCompatActivity {
         //get address that was typed in and send it to MapsActivity
         Intent firstIntent = new Intent(MainActivity.this, MapsActivity.class);
         //parcel coordinates into bundle
-       /* arguments.putParcelable("long", convertToCoordinates(getAddress()));
+     /*   EditText address = (EditText) findViewById(R.id.editText2);
+        String realAddress = address.getText().toString();
+        // addressIntent.putExtra(passedAddress, realAddress);
+        arguments.putParcelable("long", convertToCoordinates(realAddress));
         firstIntent.putExtras(arguments); */
         startActivity(firstIntent);
     }
 
     //get address from EditText and add it to passedAddress string
-    public String getAddress() {
+ /*   public String getAddress() {
         EditText address = (EditText) findViewById(R.id.editText2);
         String realAddress = address.getText().toString();
         // addressIntent.putExtra(passedAddress, realAddress);
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     //convert passedAddress to latitude and longitude coordinates
     public LatLng convertToCoordinates(String address) {
-        Geocoder converter = new Geocoder(MainActivity.this);
+        Geocoder converter = new Geocoder(getBaseContext());
         try {
             //check if addresssCollection is blank and return null if it is
             addressCollection = converter.getFromLocationName(address, 5);
@@ -71,4 +74,5 @@ public class MainActivity extends AppCompatActivity {
     }
     return coordinates;
     }
+    */
 }
