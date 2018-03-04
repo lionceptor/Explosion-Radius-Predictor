@@ -35,6 +35,8 @@
         android:layout_marginTop="16dp"
         android:onClick="drawNuke"
         android:text="Nuke"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toBottomOf="@+id/editText" />
 
@@ -44,6 +46,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:onClick="drawMoab"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/holo_blue_light"
         android:text="MOAB"
         map:layout_constraintStart_toEndOf="@+id/button4"
         map:layout_constraintTop_toBottomOf="@+id/editText" />
@@ -54,6 +59,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
+        android:onClick="drawCruise"
+        android:background="@android:color/holo_green_light"
+        android:textColor="@android:color/black"
         android:text="CRUISE"
         map:layout_constraintStart_toEndOf="@+id/button5"
         map:layout_constraintTop_toBottomOf="@+id/editText" />
@@ -70,5 +78,24 @@
         android:inputType="textPersonName"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="mMap.clear();"
+        android:text="CLEAR"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="364dp" />
 
 </android.support.constraint.ConstraintLayout>
