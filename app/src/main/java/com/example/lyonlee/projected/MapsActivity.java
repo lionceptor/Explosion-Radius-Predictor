@@ -102,7 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void drawNuke(View view)
     {
-       drawCircle(2000,0x22FF0000);
+       drawCircle(20000,0x22FF0000);
     }
 
 
@@ -120,5 +120,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void clearMap(View view)
     {
         mMap.clear();
+    }
+
+    public void zoomIn(View view)
+    {
+        mMap.moveCamera(CameraUpdateFactory.zoomIn());
+    }
+
+    public void zoomOut (View view)
+    {
+        mMap.moveCamera((CameraUpdateFactory.zoomOut()));
     }
 }
