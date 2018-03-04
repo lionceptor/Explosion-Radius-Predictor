@@ -35,7 +35,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -52,11 +51,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker in Grapevine High School and move the camera
         coordinates = new LatLng(32.9155352, -97.1197092);
         mMap.addMarker(new MarkerOptions().position(coordinates).title("Grapevine High School"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinates));
-        mMap.setMinZoomPreference(14.0f);
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
     }
 
     List<Address> addressList = null;
@@ -90,14 +89,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(coordinates).title(name));
     }
 
-    public void drawNuke(View view)
+    public void drawCircle(int radius, int fc)
     {
         CircleOptions options = new CircleOptions();
         options.center(coordinates);
-        options.radius(2000);
-        options.strokeColor(Color.RED);
-        options.fillColor(Color.BLUE);
+        options.radius(radius);
+        options.strokeColor(000000);
+        options.fillColor(fc);
         options.strokeWidth(2);
         mMap.addCircle(options);
+    }
+
+    public void drawNuke(View view)
+    {
+       drawCircle(2000,0x22FF0000);
+    }
+
+
+    public void drawMoab(View view)
+    {
+        drawCircle(1000, 0x22FFD700);
+    }
+
+
+    public void drawCruise(View view)
+    {
+        drawCircle(500, 0x2200FF00);
+    }
+
+
+    public void zoomIn(View view)
+    {
+
     }
 }
