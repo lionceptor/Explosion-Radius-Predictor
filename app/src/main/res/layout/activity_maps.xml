@@ -91,12 +91,28 @@
         map:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/roundButton"
+        android:layout_width="70"
+        android:layout_height="70"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/roundbutton"
+        android:text="+"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
+        map:layout_constraintBottom_toTopOf="@+id/roundButton2"
+        map:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/roundButton2"
+        android:layout_width="70"
+        android:layout_height="70"
         android:layout_marginBottom="48dp"
-        android:layout_marginEnd="16dp"
-        android:text="Button"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/roundbutton"
+        android:text="-"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
         map:layout_constraintBottom_toTopOf="@+id/button2"
         map:layout_constraintEnd_toEndOf="parent" />
 
