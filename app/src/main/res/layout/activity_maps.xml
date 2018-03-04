@@ -92,27 +92,31 @@
 
     <Button
         android:id="@+id/roundButton"
-        android:layout_width="70"
-        android:layout_height="70"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/roundbutton"
+        android:backgroundTint="#000000"
+        android:onClick="zoomIn"
         android:text="+"
-        android:textSize="30sp"
         android:textColor="#FFFFFF"
+        android:textSize="30sp"
         map:layout_constraintBottom_toTopOf="@+id/roundButton2"
         map:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/roundButton2"
-        android:layout_width="70"
-        android:layout_height="70"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="48dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/roundbutton"
+        android:backgroundTint="#000000"
+        android:onClick="zoomOut"
         android:text="-"
-        android:textSize="30sp"
         android:textColor="#FFFFFF"
+        android:textSize="30sp"
         map:layout_constraintBottom_toTopOf="@+id/button2"
         map:layout_constraintEnd_toEndOf="parent" />
 
